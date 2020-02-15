@@ -22,6 +22,13 @@ public class EmployeeController {
         return employeeService.add(employee);
     }
 
+    @GetMapping(value = "/addget")
+    public Employee addemp()
+    {
+        Employee employee = new Employee("Akshat","Singhal","612, Jawahar Colony, New Mandi, Muzaffarnagar","+919629000816","akshat.yash@rediffmail.com","1998-12-16");
+        return employeeService.add(employee);
+    }
+
     @GetMapping(value = "/viewall")
     public List<Employee> getAllEmployees()
     {
