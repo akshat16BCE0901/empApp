@@ -18,7 +18,6 @@ public class EmployeeController {
     @PostMapping(value = "/add")
     public Employee addEmployee(@RequestBody Employee employee)
     {
-        //Employee emp = new Employee("Akshat","Singhal","612, Jawahar Colony, New Mandi, Muzaffarnagar","+919629000816","akshat.yash@rediffmail.com","1998-12-16");
         return employeeService.add(employee);
     }
 
@@ -36,15 +35,22 @@ public class EmployeeController {
     }
 
     @GetMapping(value = "/view/{id}")
-    public Optional<Employee> getEmployee(@PathVariable Long id)
+    public Optional<Employee> getEmployee(@PathVariable(value = "id") Long id)
     {
         return employeeService.getEmployee(id);
     }
 
     @DeleteMapping(value = "/delete/{id}")
-    public void deleteEmployee(@PathVariable Long id)
+    public void deleteEmployee(@PathVariable(value = "id") Long id)
     {
         employeeService.deleteEmployee(id);
     }
+
+    @GetMapping(value = "deleteget/{id}")
+    public void deleteEmp(@PathVariable(value = "id") Long id){
+        employeeService.deleteEmployee(id);
+    }
+
+
 
 }

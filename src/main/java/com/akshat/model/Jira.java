@@ -1,5 +1,7 @@
 package com.akshat.model;
 
+import org.springframework.data.annotation.CreatedDate;
+
 import javax.persistence.*;
 
 @Entity
@@ -14,12 +16,15 @@ public class Jira {
     private String priority;
     private int story_points;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "project_id")
     private Project project;
+
     private float sprint;
     private String assignee;
     private String assigned_to;
     private String date_created;
+
     private String status;
     private String date_ended;
 
