@@ -1,7 +1,5 @@
 package com.akshat.model;
 
-import org.springframework.data.annotation.CreatedDate;
-
 import javax.persistence.*;
 
 @Entity
@@ -21,8 +19,13 @@ public class Jira {
     private Project project;
 
     private float sprint;
-    private String assignee;
-    private String assigned_to;
+    @ManyToOne
+    @JoinColumn(name = "assignee")
+    private Employee assignee;
+
+    @ManyToOne
+    @JoinColumn(name = "assigned_to")
+    private Employee assigned_to;
     private String date_created;
 
     private String status;
@@ -88,19 +91,19 @@ public class Jira {
         this.sprint = sprint;
     }
 
-    public String getAssignee() {
+    public Employee getAssignee() {
         return assignee;
     }
 
-    public void setAssignee(String assignee) {
+    public void setAssignee(Employee assignee) {
         this.assignee = assignee;
     }
 
-    public String getAssigned_to() {
+    public Employee getAssigned_to() {
         return assigned_to;
     }
 
-    public void setAssigned_to(String assigned_to) {
+    public void setAssigned_to(Employee assigned_to) {
         this.assigned_to = assigned_to;
     }
 

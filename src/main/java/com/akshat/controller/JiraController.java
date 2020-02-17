@@ -1,26 +1,36 @@
 package com.akshat.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.View;
+import com.akshat.model.Jira;
+import com.akshat.service.JiraService;
+import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.util.Map;
+import javax.annotation.Resource;
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/jira")
 public class JiraController {
 
-    @RequestMapping(value = "/",method = RequestMethod.GET)
-    public String viewJiraPage(Model model)
+    @Resource(name = "JiraService")
+    private JiraService jiraService;
+
+    @PostMapping(value = "/add")
+    public Jira addJira(@RequestBody Jira jira)
     {
-        model.addAttribute("userset",true);
-        return "jira";
+        return jiraService.addJira(jira);
+    }
+
+    @GetMapping(value = "/viewall")
+    public List<Jira> viewAll()
+    {
+        return jiraService.viewAll();
+    }
+
+    @GetMapping(value = "/view/{id}")
+    public Optional<Jira> viewJira(@PathVariable("id") Long id)
+    {
+        return jiraService.findJira(id);
     }
 
 }
