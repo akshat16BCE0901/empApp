@@ -14,6 +14,7 @@ public class Project {
     private String description;
 
     @ManyToOne
+    @JoinColumn(name = "project_head")
     private Employee employee;
 
     public Project() {
