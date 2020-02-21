@@ -24,7 +24,7 @@ public class EmployeeController {
     @GetMapping(value = "/addget")
     public Employee addemp()
     {
-        Employee employee = new Employee("Akshat","Singhal","612, Jawahar Colony, New Mandi, Muzaffarnagar","+919629000816","akshat.yash@rediffmail.com","1998-12-16");
+        Employee employee = new Employee("Akshat","Singhal","612, Jawahar Colony, New Mandi, Muzaffarnagar","+919629000816","akshat.yash@rediffmail.com","1998-12-16","akki"+Math.floor(Math.random()*100),"akshat");
         return employeeService.add(employee);
     }
 

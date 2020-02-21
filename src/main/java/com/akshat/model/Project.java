@@ -15,7 +15,7 @@ public class Project {
 
     @ManyToOne
     @JoinColumn(name = "project_head")
-    private Employee employee;
+    private Employee project_head;
 
     public Project() {
     }
@@ -44,12 +44,12 @@ public class Project {
         this.description = description;
     }
 
-    public Employee getEmployee() {
-        return employee;
+    public Employee getProject_head() {
+        return project_head;
     }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
+    public void setProject_head(Employee project_head) {
+        this.project_head = project_head;
     }
 
     @Override
@@ -58,7 +58,7 @@ public class Project {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", employee=" + employee +
+                ", employee=" + project_head +
                 '}';
     }
 }

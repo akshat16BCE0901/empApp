@@ -141,8 +141,8 @@ public class Jira {
                 ", story_points=" + story_points +
                 ", project=" + project +
                 ", sprint=" + sprint +
-                ", assignee='" + assignee + '\'' +
-                ", assigned_to='" + assigned_to + '\'' +
+                ", assignee=" + assignee +
+                ", assigned_to=" + assigned_to +
                 ", date_created='" + date_created + '\'' +
                 ", status='" + status + '\'' +
                 ", date_ended='" + date_ended + '\'' +

@@ -17,20 +17,22 @@ public class Employee {
 	private String phone;
 	private String email;
 	private String date_of_birth;
-	
-	public Employee()
-	{
-		
-	}
+	private String username;
+	private String password;
 
-	public Employee(String firstname, String lastname, String address, String phone, String email, String date_of_birth) {
-		super();
+	public Employee() {
+	}
+	
+	public Employee(String firstname, String lastname, String address, String phone, String email, String date_of_birth,String username, String password)
+	{
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.address = address;
-		this.phone = phone;
+		this.phone=  phone;
 		this.email = email;
 		this.date_of_birth = date_of_birth;
+		this.username = username;
+		this.password = password;
 	}
 
 	public long getId() {
@@ -89,6 +91,22 @@ public class Employee {
 		this.date_of_birth = date_of_birth;
 	}
 
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	@Override
 	public String toString() {
 		return "Employee{" +
@@ -98,7 +116,9 @@ public class Employee {
 				", address='" + address + '\'' +
 				", phone='" + phone + '\'' +
 				", email='" + email + '\'' +
-				", date_of_birth=" + date_of_birth +
+				", date_of_birth='" + date_of_birth + '\'' +
+				", username='" + username + '\'' +
+				", password='" + password + '\'' +
 				'}';
 	}
 }
