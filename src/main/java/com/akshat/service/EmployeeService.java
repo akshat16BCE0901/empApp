@@ -5,8 +5,10 @@ import com.akshat.repository.EmployeeRepository;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import org.json.simple.JSONObject;
 
 @Service(value = "EmployeeService")
 public class EmployeeService {
@@ -34,6 +36,20 @@ public class EmployeeService {
         employeeRepository.deleteById(id);
     }
 
+    public List<JSONObject> getNames()
+    {
+        List<Object[]> result = employeeRepository.findNames();
+        List<JSONObject> namelist = new ArrayList<>();
+        for(Object[] obj : result)
+        {
+            JSONObject jo = new JSONObject();
+            jo.put("id",obj[0]);
+            jo.put("firstname",obj[1]);
+            jo.put("lastname",obj[2]);
+            namelist.add(jo);
+        }
+        return namelist;
+    }
 
 
 }

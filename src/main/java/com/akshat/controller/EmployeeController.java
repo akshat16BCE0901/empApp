@@ -2,6 +2,7 @@ package com.akshat.controller;
 
 import com.akshat.model.Employee;
 import com.akshat.service.EmployeeService;
+import org.json.simple.JSONObject;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -24,7 +25,7 @@ public class EmployeeController {
     @GetMapping(value = "/addget")
     public Employee addemp()
     {
-        Employee employee = new Employee("Akshat","Singhal","612, Jawahar Colony, New Mandi, Muzaffarnagar","+919629000816","akshat.yash@rediffmail.com","1998-12-16","akki"+Math.floor(Math.random()*100),"akshat");
+        Employee employee = new Employee("Akshat","Singhal","612, Jawahar Colony, New Mandi, Muzaffarnagar","+919629000816","akshat.yash@rediffmail.com","1998-12-16","akki"+Math.floor(Math.random()*100),"akshat ");
         return employeeService.add(employee);
     }
 
@@ -38,6 +39,12 @@ public class EmployeeController {
     public Optional<Employee> getEmployee(@PathVariable(value = "id") Long id)
     {
         return employeeService.getEmployee(id);
+    }
+
+    @GetMapping(value = "/getnames")
+    public List<JSONObject> findNames()
+    {
+        return employeeService.getNames();
     }
 
     @DeleteMapping(value = "/delete/{id}")
