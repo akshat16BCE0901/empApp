@@ -38,6 +38,5 @@ public class ProjectController {
     public List<JSONObject> getnames()
     {
         return projectService.getAllProjectNames();
-
     }
 }
