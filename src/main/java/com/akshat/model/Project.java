@@ -1,5 +1,7 @@
 package com.akshat.model;
 
+import jdk.internal.jline.internal.Nullable;
+
 import javax.persistence.*;
 
 @Entity
@@ -13,7 +15,8 @@ public class Project {
     private String name;
     private String description;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
+    @Nullable
     @JoinColumn(name = "project_head")
     private Employee project_head;
 
