@@ -2,6 +2,7 @@ package com.akshat.controller;
 
 import com.akshat.model.Project;
 import com.akshat.service.ProjectService;
+import org.json.simple.JSONObject;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -31,5 +32,12 @@ public class ProjectController {
     public Optional<Project> findProject(@PathVariable("id") Long id)
     {
         return projectService.viewProject(id);
+    }
+
+    @GetMapping(value = "/getnames")
+    public List<JSONObject> getnames()
+    {
+        return projectService.getAllProjectNames();
+
     }
 }

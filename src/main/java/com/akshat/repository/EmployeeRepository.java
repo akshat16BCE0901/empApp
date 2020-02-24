@@ -12,6 +12,6 @@ import java.util.List;
 public interface EmployeeRepository extends JpaRepository<Employee,Long> {
 
     @Query(value = "SELECT id,firstname,lastname from employee", nativeQuery = true)
-    public List<Object[]> findNames();
+    List<Object[]> findNames();
 
 }

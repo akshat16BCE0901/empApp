@@ -34,6 +34,20 @@ public class Jira {
     public Jira() {
     }
 
+    public Jira(String title, String description,String priority, int story_points,Project project, float sprint,Employee assignee, Employee assigned_to, String date_created, String status, String date_ended ){
+        this.title = title;
+        this.description = description;
+        this.priority = priority;
+        this.story_points = story_points;
+        this.project = project;
+        this.sprint = sprint;
+        this.assignee = assignee;
+        this.assigned_to = assigned_to;
+        this.date_created = date_created;
+        this.status = status;
+        this.date_ended = date_ended;
+    }
+
 
     public Long getId() {
         return id;
