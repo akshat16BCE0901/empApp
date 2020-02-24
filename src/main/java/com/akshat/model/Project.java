@@ -14,7 +14,7 @@ public class Project {
     private String name;
     private String description;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "project_head")
     private Employee project_head;
 
