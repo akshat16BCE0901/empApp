@@ -19,11 +19,11 @@ public class Jira {
     private Project project;
 
     private float sprint;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "assignee")
     private Employee assignee;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "assigned_to")
     private Employee assigned_to;
     private String date_created;
