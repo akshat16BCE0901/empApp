@@ -7,6 +7,7 @@ import org.json.simple.JSONObject;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,16 +32,18 @@ public class JiraService {
         return jiraRepository.findById(id);
     }
 
-    public JSONObject getJiraStatus()
+    public List<JSONObject> getJiraStatus()
     {
-
-        JSONObject jsonObject = new JSONObject();
+        List<JSONObject> arr = new ArrayList<>();
         List<Object[]> status = jiraRepository.getJiraStatus();
         for(Object[] obj : status)
         {
-            jsonObject.put(obj[0],obj[1]);
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("status",obj[0]);
+            jsonObject.put("count",obj[1]);
+            arr.add(jsonObject);
         }
-        return jsonObject;
+        return arr;
     }
 
 }

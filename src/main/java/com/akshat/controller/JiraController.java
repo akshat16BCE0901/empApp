@@ -35,7 +35,7 @@ public class JiraController {
     }
 
     @GetMapping(value = "/getstatus")
-    public JSONObject getstatus()
+    public List<JSONObject> getstatus()
     {
         return jiraService.getJiraStatus();
     }

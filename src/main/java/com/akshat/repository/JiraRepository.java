@@ -11,6 +11,6 @@ import java.util.List;
 public interface JiraRepository extends JpaRepository<Jira,Long> {
 
     @Query(value = "select status, count(*) as status_count from jira group by status", nativeQuery = true)
-    public List<Object[]> getJiraStatus();
+    List<Object[]> getJiraStatus();
 
 }
