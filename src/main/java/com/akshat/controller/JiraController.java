@@ -2,6 +2,7 @@ package com.akshat.controller;
 
 import com.akshat.model.Jira;
 import com.akshat.service.JiraService;
+import org.json.simple.JSONObject;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -32,5 +33,12 @@ public class JiraController {
     {
         return jiraService.findJira(id);
     }
+
+    @GetMapping(value = "/getstatus")
+    public JSONObject getstatus()
+    {
+        return jiraService.getJiraStatus();
+    }
+
 
 }

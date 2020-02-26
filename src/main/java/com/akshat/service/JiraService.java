@@ -2,6 +2,8 @@ package com.akshat.service;
 
 import com.akshat.model.Jira;
 import com.akshat.repository.JiraRepository;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -27,6 +29,18 @@ public class JiraService {
     public Optional<Jira> findJira(Long id)
     {
         return jiraRepository.findById(id);
+    }
+
+    public JSONObject getJiraStatus()
+    {
+
+        JSONObject jsonObject = new JSONObject();
+        List<Object[]> status = jiraRepository.getJiraStatus();
+        for(Object[] obj : status)
+        {
+            jsonObject.put(obj[0],obj[1]);
+        }
+        return jsonObject;
     }
 
 }
