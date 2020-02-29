@@ -32,7 +32,6 @@ public class EmpManagementApplication extends SpringBootServletInitializer {
 }
 
 @Configuration
-@EnableWebMvc
 class WebConfig implements WebMvcConfigurer
 {
 	@Override
