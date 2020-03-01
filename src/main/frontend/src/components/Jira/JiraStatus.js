@@ -12,7 +12,7 @@ class JiraStatus extends Component
 
     componentDidMount = () =>
     {
-        Axios.get("https://akkiapp.herokuapp.com/jira/getstatus")
+        Axios.get("/jira/getstatus")
         .then(response => response.data)
         .then((data) => {
             this.setState({

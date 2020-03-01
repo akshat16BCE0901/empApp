@@ -12,7 +12,7 @@ class AllJiras extends Component
     }
 
     componentDidMount(){
-        const URL = "https://akkiapp.herokuapp.com/jira/viewall";
+        const URL = "/jira/viewall";
         Axios.get(URL).then(response => response.data)
         .then((data)=>{
             this.setState({jiras : data});

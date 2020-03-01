@@ -38,7 +38,7 @@ class AddEmployeeForm extends Component
             "password": this.state.password
         };
 
-        Axios.post("https://akkiapp.herokuapp.com/employee/add",employee).then(response => {
+        Axios.post("/employee/add",employee).then(response => {
             console.log(response);
             if(response.status===200)
             {

@@ -53,7 +53,7 @@ class AddJiraForm extends Component
             "date_ended": null
         };
 
-        Axios.post("https://akkiapp.herokuapp.com/jira/add",jira)
+        Axios.post("/jira/add",jira)
         .then(response =>{ 
             console.log(response)
             if(response.status===200)
@@ -64,14 +64,14 @@ class AddJiraForm extends Component
     }
 
     componentDidMount = () =>{
-        Axios.get("https://akkiapp.herokuapp.com/employee/getnames").then(response => response.data)
+        Axios.get("/employee/getnames").then(response => response.data)
         .then((data) => {
             this.setState({allEmployees : data});
             this.setState({allEmployees : this.state.allEmployees.filter(emp => emp.firstname!=null)})
             console.log(this.state.allEmployees);
         });
 
-        Axios.get("https://akkiapp.herokuapp.com/project/getnames").then(response => response.data)
+        Axios.get("/project/getnames").then(response => response.data)
         .then((data) => {
             this.setState({allProjects : data});
             console.log(this.state.allProjects);

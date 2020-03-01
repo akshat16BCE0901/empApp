@@ -34,7 +34,7 @@ class AddProjectForm extends Component
         };
         console.log(project);
 
-        Axios.post("https://akkiapp.herokuapp.com/project/add",project)
+        Axios.post("/project/add",project)
         .then(response => {
             console.log(response);
             if(response.status===200)
@@ -45,7 +45,7 @@ class AddProjectForm extends Component
     }
 
     componentDidMount = () =>{
-        Axios.get("https://akkiapp.herokuapp.com/employee/getnames").then(response => response.data)
+        Axios.get("/employee/getnames").then(response => response.data)
         .then((data) => {
             this.setState({employeesList : data});
             

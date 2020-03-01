@@ -10,7 +10,7 @@ class AllEmployees extends Component
         employees : []
     }
     componentDidMount(){
-        const URL = "https://akkiapp.herokuapp.com/employee/viewall";
+        const URL = "/employee/viewall";
         Axios.get(URL).then(response => response.data)
         .then((data)=>{
             this.setState({employees : data});
