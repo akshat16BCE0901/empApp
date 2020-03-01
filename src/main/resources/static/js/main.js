@@ -13,8 +13,7 @@ function setConnected(connected) {
     else {
         $("#conversation").hide();
     }
-    document.getElementById("greetings").innerHTML="";
-    // $("#greetings").html("");
+    $("#greetings").html("");
 }
 
 function connect() {
@@ -47,7 +46,7 @@ function sendName() {
 }
 
 function showGreeting(message) {
-    document.getElementById("greetings").append("<tr><td>" + message + "</td></tr>");
+    $("#greetings").append("<tr><td>" + message + "</td></tr>");
 }
 
 $(function () {
