@@ -1,4 +1,5 @@
 var stompClient = null;
+var username = "";
 
 function setConnected(connected) {
     $("#connect").prop("disabled", connected);
@@ -13,6 +14,7 @@ function setConnected(connected) {
 }
 
 function connect() {
+    username = $("#username").val();
     var socket = new SockJS('/myendpoint');
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function (frame) {
@@ -33,7 +35,11 @@ function disconnect() {
 }
 
 function sendName() {
-    stompClient.send("/app/hello", {}, JSON.stringify({'name': $("#name").val()}));
+    const obj = {
+        "name": username,
+        "message": $("#name").val()
+    };
+    stompClient.send("/app/hello", {}, JSON.stringify(obj));
 }
 
 function showGreeting(message) {

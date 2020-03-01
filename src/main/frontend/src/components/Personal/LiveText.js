@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 
-import 'jquery/dist/jquery.min';
+import 'jquery/dist/jquery.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.min';
+import 'bootstrap/dist/js/bootstrap.min.js';
+
 
 class LiveText extends Component
 {
@@ -42,24 +43,26 @@ class LiveText extends Component
         return(
             <div id="main-content" className="container">
                 <div className="row">
-                    <div className="col-md-6">
+                    <div className="col-md-12">
                         <form className="form-inline">
                             <div className="form-group">
-                                <label htmlFor="connect">WebSocket connection:</label>
-                                <button id="connect" className="btn btn-default" type="submit">Connect</button>
-                                <button id="disconnect" className="btn btn-default" type="submit"
+                                <input id="username" type="text" placeholder="Enter Name" />
+                                <button id="connect" className="btn btn-default" type="button">Connect</button>
+                                <button id="disconnect" className="btn btn-default" type="button"
                                         disabled="disabled">Disconnect
                                 </button>
                             </div>
                         </form>
                     </div>
+                </div>
+                <div className="row">
                     <div className="col-md-6">
                         <form className="form-inline">
                             <div className="form-group">
                                 <label htmlFor="name">What is your name?</label>
                                 <input type="text" id="name" className="form-control" placeholder="Your name here..." />
                             </div>
-                            <button id="send" className="btn btn-default" type="submit">Send</button>
+                            <button id="send" className="btn btn-default" type="button">Send</button>
                         </form>
                     </div>
                 </div>
