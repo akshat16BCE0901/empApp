@@ -1,11 +1,14 @@
 var stompClient = null;
 var username = "";
+$("#chattab").hide();
 
 function setConnected(connected) {
     $("#connect").prop("disabled", connected);
     $("#disconnect").prop("disabled", !connected);
     if (connected) {
         $("#conversation").show();
+        $("#username").hide();
+        $("#chattab").show();
     }
     else {
         $("#conversation").hide();

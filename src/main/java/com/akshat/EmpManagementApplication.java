@@ -28,8 +28,20 @@ public class EmpManagementApplication extends SpringBootServletInitializer {
 		return builder.sources(EmpManagementApplication.class);
 	}
 
-	public static void main(String[] args) {
 
+
+	public static void main(String[] args) {
+		System.out.println("\t\t\t/\\\t\t\t  ____     _____   ____     _____    ______________\n" +
+				"\t\t   /  \\\t\t\t |    |   /    /  |    |   /    /   |\t\t       |  \n" +
+				"\t\t  /    \\\t\t |    |  /    /   |    |  /    /  \t|_____\t  _____|\n" +
+				"\t\t /      \\\t\t |    | /    /\t  |    | /    /\t\t\t |    |\n" +
+				"\t\t/   /\\   \\\t\t |    |/    /     |    |/    /\t\t\t |    |\n" +
+				"\t   /   /__\\   \\\t\t |         /\t  |         /\t\t     |    |\n" +
+				"\t  /            \\\t |         \\\t  |         \\\t\t     |    |\n" +
+				"\t /    ______    \\    |    |\\    \\\t  |    |\\    \\\t\t     |    |\n" +
+				"\t/    /      \\    \\\t |    | \\    \\\t  |    | \\    \\\t     ____|    |____\n" +
+				"   /    /        \\    \\\t |    |  \\    \\   |    |  \\    \\\t|\t\t\t   |\n" +
+				"  /____/\t\t  \\____\\ |____|   \\____\\  |____|   \\____\\   |______________|");
 		SpringApplication.run(EmpManagementApplication.class, args);
 	}
 
@@ -42,6 +54,8 @@ class WebConfig implements WebMvcConfigurer
 	public void addCorsMappings(CorsRegistry registry) {
 		registry.addMapping("/**");
 	}
+
+
 }
 
 @Configuration

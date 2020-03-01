@@ -1,16 +1,20 @@
 var stompClient = null;
 var username = "";
+$("#chattab").hide();
 
 function setConnected(connected) {
     $("#connect").prop("disabled", connected);
     $("#disconnect").prop("disabled", !connected);
     if (connected) {
         $("#conversation").show();
+        $("#username").hide();
+        $("#chattab").show();
     }
     else {
         $("#conversation").hide();
     }
-    $("#greetings").html("");
+    document.getElementById("greetings").innerHTML="";
+    // $("#greetings").html("");
 }
 
 function connect() {
@@ -43,7 +47,7 @@ function sendName() {
 }
 
 function showGreeting(message) {
-    $("#greetings").append("<tr><td>" + message + "</td></tr>");
+    document.getElementById("greetings").append("<tr><td>" + message + "</td></tr>");
 }
 
 $(function () {
