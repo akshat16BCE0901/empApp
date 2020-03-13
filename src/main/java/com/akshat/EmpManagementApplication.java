@@ -31,17 +31,12 @@ public class EmpManagementApplication extends SpringBootServletInitializer {
 
 
 	public static void main(String[] args) {
-		System.out.println("\t\t\t/\\\t\t\t  ____     _____   ____     _____    ______________\n" +
-				"\t\t   /  \\\t\t\t |    |   /    /  |    |   /    /   |\t\t       |  \n" +
-				"\t\t  /    \\\t\t |    |  /    /   |    |  /    /  \t|_____\t  _____|\n" +
-				"\t\t /      \\\t\t |    | /    /\t  |    | /    /\t\t\t |    |\n" +
-				"\t\t/   /\\   \\\t\t |    |/    /     |    |/    /\t\t\t |    |\n" +
-				"\t   /   /__\\   \\\t\t |         /\t  |         /\t\t     |    |\n" +
-				"\t  /            \\\t |         \\\t  |         \\\t\t     |    |\n" +
-				"\t /    ______    \\    |    |\\    \\\t  |    |\\    \\\t\t     |    |\n" +
-				"\t/    /      \\    \\\t |    | \\    \\\t  |    | \\    \\\t     ____|    |____\n" +
-				"   /    /        \\    \\\t |    |  \\    \\   |    |  \\    \\\t|\t\t\t   |\n" +
-				"  /____/\t\t  \\____\\ |____|   \\____\\  |____|   \\____\\   |______________|");
+		System.out.println("       _     _\n" +
+				" _____| |  _| |  _  _ \n" +
+				"|  _  | |_/ | |_/ |(_)\n" +
+				"| |_| |    /|    / | |\n" +
+				"|  _  |    \\|    \\ | |\n" +
+				"|_| |_|_|\\__|_|\\__\\|_|");
 		SpringApplication.run(EmpManagementApplication.class, args);
 	}
 
