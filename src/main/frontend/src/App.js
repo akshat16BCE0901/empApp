@@ -19,6 +19,7 @@ import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+import { Badge, ProgressBar } from 'react-bootstrap';
 
 var components = {
   employees : <AllEmployees />,
@@ -51,6 +52,8 @@ class App extends Component
   }
 
   render(){
+    var now1=40;
+    var now2 = 50;
     return (
       <Router>
         <Navbar bg="primary" variant="dark" expand="lg">
@@ -73,10 +76,11 @@ class App extends Component
             </Nav>
             <Nav className="mr-auto">
               <Nav.Link href="/yourjiras" style={{color : "white"}}>Your Jiras</Nav.Link>
-              <NavDropdown  style={{color : "white", backgroundColor : "green", borderRadius : "10px"}} title="Under Construction" id="basic-nav-dropdown">
-                <NavDropdown.Item href="/liveedit">Live Edit</NavDropdown.Item>
-                <NavDropdown.Item href="/individualjira">Individual Jiras</NavDropdown.Item>
+              <NavDropdown title="Extras" id="basic-nav-dropdown">
+                <NavDropdown.Item href="/liveedit">Live Edit&nbsp;&nbsp;<ProgressBar animated variant="success"  now={now1} label={`Done ${now1}%`} /></NavDropdown.Item>
+                <NavDropdown.Item href="/individualjira">Individual Jiras&nbsp;&nbsp;<ProgressBar animated variant="success" now={now2} label={`Done ${now2}%`}   /></NavDropdown.Item>
               </NavDropdown>
+              <div><Badge pill variant="warning" >Under Construction</Badge></div>
               
             </Nav>
             <Form inline>
@@ -85,7 +89,7 @@ class App extends Component
             </Form>
           </Navbar.Collapse>
         </Navbar>
-        <div className="container" style={{marginTop:"10px"}}>
+        <div className="container-fluid" style={{marginTop:"10px",padding : '10px'}}>
           <Switch>
               <Route path="/yourjiras">
                 {components.yourJiras}
