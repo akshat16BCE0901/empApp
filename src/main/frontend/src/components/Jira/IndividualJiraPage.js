@@ -17,3 +17,5 @@ class IndividualJiraPage extends Component
         )
     }
 }
+
+export default IndividualJiraPage;
