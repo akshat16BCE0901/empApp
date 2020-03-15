@@ -16,17 +16,13 @@ class IndividualJiraPage extends Component
                     <p><span className="h6">Assignee : </span>Praful Martis</p>
                     <p><span className="h6">Story Points : </span>4</p>
                     <p><span className="h6">Project : </span>DAC Refinement</p>
-                    <p><span className="h6">ID : </span>4</p>
-                    <p><span className="h6">ID : </span>4</p>
                 </div>
                 <div className="col-md-4">
-                    <p><span className="h6">ID : </span>22</p>
-                    <p><span className="h6">Title : </span>Reduce DAC Build Time</p>
-                    <p><span className="h6">Assignee : </span>Praful Martis</p>
-                    <p><span className="h6">Story Points : </span>4</p>
-                    <p><span className="h6">Project : </span>DAC Refinement</p>
-                    <p><span className="h6">ID : </span>4</p>
-                    <p><span className="h6">ID : </span>4</p>
+                    <p><span className="h6">Status : </span>4</p>
+                    <p><span className="h6">Sprint : </span>11.3</p>
+                    <p><span className="h6">Date Created : </span>26-Feb-2020</p>
+                    <p><span className="h6">Date Ended : </span>---</p>
+                    <p><span className="h6">Priority : </span>High</p>
                 </div>
                 <div className="col-md-4">
                     <h2 className="text-center">Quick Actions</h2>
