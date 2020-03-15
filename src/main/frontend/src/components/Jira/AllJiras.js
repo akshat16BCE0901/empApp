@@ -18,22 +18,22 @@ class AllJiras extends Component
             this.setState({jiras : data});
             console.log(this.state.jiras);
             var arr= [];
-            this.state.jiras.map(row => {
-                var obj = {
-                    "id" : row.id,
-                    "title": row.title,
-                    "description": row.description,
-                    "priority": row.priority,
-                    "story_points": row.story_points,
-                    "project_id": row.project!=null?row.project.id:"Not Assigned",
-                    "sprint": row.sprint,
-                    "assignee": row.assignee.firstname + ' '+ row.assignee.lastname,
-                    "assigned_to": row.assigned_to.firstname + ' '+ row.assigned_to.lastname,
-                    "date_created": row.date_created,
-                    "status": row.status,
-                    "date_ended": row.date_ended
-                };
-                arr.push(obj);
+            this.state.jiras.forEach(function(row){
+              var obj = {
+                "id" : row.id,
+                "title": row.title,
+                "description": row.description,
+                "priority": row.priority,
+                "story_points": row.story_points,
+                "project_id": row.project!=null?row.project.id:"Not Assigned",
+                "sprint": row.sprint,
+                "assignee": row.assignee.firstname + ' '+ row.assignee.lastname,
+                "assigned_to": row.assigned_to.firstname + ' '+ row.assigned_to.lastname,
+                "date_created": row.date_created,
+                "status": row.status,
+                "date_ended": row.date_ended
+              };
+              arr.push(obj);
             });
             this.setState({tableContent : arr});
         })

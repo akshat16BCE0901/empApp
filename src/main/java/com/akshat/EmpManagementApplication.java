@@ -32,11 +32,12 @@ public class EmpManagementApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
 		System.out.println("       _     _\n" +
-				" _____| |  _| |  _  _ \n" +
-				"|  _  | |_/ | |_/ |(_)\n" +
-				"| |_| |    /|    / | |\n" +
-				"|  _  |    \\|    \\ | |\n" +
-				"|_| |_|_|\\__|_|\\__\\|_|");
+                " _____| |  _| |  _  _    _____\n" +
+                "|  _  | |_/ | |_/ |(_)  |  _  |_ __ _ __ \n" +
+                "| |_| |    /|    / | |  | |_| | '_ | '_ \\\n" +
+                "|  _  |    \\|    \\ | |  |  _  | |_)| |_) |\n" +
+                "|_| |_|_|\\__|_|\\__\\|_|  |_| |_| .__| .__/\n" +
+                "                              |_|  |_| ");
 		SpringApplication.run(EmpManagementApplication.class, args);
 	}
 
