@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import { Button } from 'react-bootstrap';
+import React, {  useState } from 'react';
+import { Button, Collapse } from 'react-bootstrap';
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
-class IndividualJiraPage extends Component
+function IndividualJiraPage()
 {
-
-    componentDidMount = () =>{
-
-    }
-    render(){
-        return(
+    const [openDesc , setOpenDesc] = useState(true);
+    const [openAtt , setOpenAtt] = useState(false);
+    const [openComm , setOpenComm] = useState(false);
+    return(
+        <>
             <div className="row" style={{backgroundColor:"white",padding : "10px"}}>
                 <div className="col-md-4">
                     <p><span className="h6">ID : </span>22</p>
@@ -34,8 +34,45 @@ class IndividualJiraPage extends Component
                     </div>
                 </div>
             </div>
-        )
-    }
+            <div className="row" style={{backgroundColor:"#e3e3e3",padding : "10px"}}>
+                <div className="col-md-12">
+                    <h5 onClick={() => setOpenDesc(!openDesc)} aria-controls="description" aria-expanded={openDesc} >Description&nbsp;<i class="fas fa-angle-down"></i>  </h5>
+                </div>
+                <Collapse in={openDesc}>
+                    <div id="description" className="col-md-12">
+                    As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run.
+                    </div>
+                </Collapse>
+            </div>
+            <div className="row" style={{backgroundColor:"#e3e3e3",padding : "10px"}}>
+                <div className="col-md-12">
+                    <h5 onClick={() => setOpenAtt(!openAtt)} aria-controls="attachments" aria-expanded={openAtt} >Attachments&nbsp;<i class="fas fa-angle-right"></i>  </h5>
+                </div>
+                <Collapse in={openAtt}>
+                    <div id="atachments" className="col-md-12">
+                    As an IDL user, I want to reduce the DAC build time in order<br />
+                    As an IDL user, I want to reduce the DAC build time in order<br />
+                    As an IDL user, I want to reduce the DAC build time in order<br />
+                    </div>
+                </Collapse>
+            </div>
+            <div className="row" style={{backgroundColor:"#e3e3e3",padding : "10px"}}>
+                <div className="col-md-12">
+                    <h5 onClick={() => setOpenComm(!openComm)} aria-controls="comments" aria-expanded={openComm} >Comments&nbsp;<i class="fas fa-angle-right"></i>  </h5>
+                </div>
+                <Collapse in={openComm}>
+                    <div id="comments" className="col-md-12">
+                        As an IDL user, I want to reduce the DAC build time in order<br />
+                        As an IDL user, I want to reduce the DAC build time in order<br />
+                        As an IDL user, I want to reduce the DAC build time in order<br />
+                        As an IDL user, I want to reduce the DAC build time in order<br />
+                        As an IDL user, I want to reduce the DAC build time in order<br />
+                        As an IDL user, I want to reduce the DAC build time in order<br />
+                    </div>
+                </Collapse>
+            </div>
+        </>
+    )
 }
 
 export default IndividualJiraPage;

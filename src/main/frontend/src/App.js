@@ -89,7 +89,7 @@ class App extends Component
             </Form>
           </Navbar.Collapse>
         </Navbar>
-        <div className="container-fluid" style={{marginTop:"10px",padding : '10px'}}>
+        <div className="container-fluid" style={{margin:'0px', marginTop : '20px'}}>
           <Switch>
               <Route path="/yourjiras">
                 {components.yourJiras}
