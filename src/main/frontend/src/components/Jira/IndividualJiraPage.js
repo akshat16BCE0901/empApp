@@ -34,17 +34,17 @@ function IndividualJiraPage()
                     </div>
                 </div>
             </div>
-            <div className="row" style={{backgroundColor:"#e3e3e3",padding : "10px"}}>
+            <div className="row" style={{backgroundColor:"#e3e3e3",padding : "10px", border: '1px solid black'}}>
                 <div className="col-md-12">
                     <h5 onClick={() => setOpenDesc(!openDesc)} aria-controls="description" aria-expanded={openDesc} >Description&nbsp;<i class="fas fa-angle-down"></i>  </h5>
                 </div>
                 <Collapse in={openDesc}>
-                    <div id="description" className="col-md-12">
+                    <div id="description" className="col-md-12 text-justify">
                     As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run.
                     </div>
                 </Collapse>
             </div>
-            <div className="row" style={{backgroundColor:"#e3e3e3",padding : "10px"}}>
+            <div className="row" style={{backgroundColor:"#e3e3e3",padding : "10px", border: '1px solid black'}}>
                 <div className="col-md-12">
                     <h5 onClick={() => setOpenAtt(!openAtt)} aria-controls="attachments" aria-expanded={openAtt} >Attachments&nbsp;<i class="fas fa-angle-right"></i>  </h5>
                 </div>
@@ -56,7 +56,7 @@ function IndividualJiraPage()
                     </div>
                 </Collapse>
             </div>
-            <div className="row" style={{backgroundColor:"#e3e3e3",padding : "10px"}}>
+            <div className="row" style={{backgroundColor:"#e3e3e3",padding : "10px", border: '1px solid black'}}>
                 <div className="col-md-12">
                     <h5 onClick={() => setOpenComm(!openComm)} aria-controls="comments" aria-expanded={openComm} >Comments&nbsp;<i class="fas fa-angle-right"></i>  </h5>
                 </div>
