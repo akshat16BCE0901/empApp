@@ -5,6 +5,37 @@ import Axios from "axios";
 
 class IndividualJiraPage extends Component
 {
+    
+    state = {
+        openDesc : true,
+        openAtt : false,
+        openComm : false,
+        jira : {
+            "id":null,
+            "title":"",
+            "description":"",
+            "priority":"",
+            "story_points":null,
+            "project":{
+                id : null,
+                name : ""
+            },
+            "sprint":null,
+            "assignee":{
+                "id":null,
+                "firstname":"",
+                "lastname":""
+            },
+            "assigned_to":{
+                "id":null,
+                "firstname":"",
+                "lastname":""
+            },
+            "date_created":null,
+            "status":"",
+            "date_ended":null
+        }
+    };
     componentDidMount = () =>{
         Axios.get("https://akkiapp.herokuapp.com/jira/view/42")
         .then(response => response.data)
@@ -13,12 +44,6 @@ class IndividualJiraPage extends Component
             console.log(this.state.jira);
         });
     }
-    state = {
-        openDesc : true,
-        openAtt : false,
-        openComm : false,
-        jira : null
-    };
     
     setOpenDesc = function(flag)
     {
@@ -37,18 +62,18 @@ class IndividualJiraPage extends Component
             <>
                 <div className="row" style={{backgroundColor:"white",padding : "10px"}}>
                     <div className="col-md-4">
-                        <p><span className="h6">ID : </span>22</p>
-                        <p><span className="h6">Title : </span>Reduce DAC Build Time</p>
-                        <p><span className="h6">Assignee : </span>Praful Martis</p>
-                        <p><span className="h6">Story Points : </span>4</p>
-                        <p><span className="h6">Project : </span>DAC Refinement</p>
+                        <p><span className="h6">ID : </span>{this.state.jira.id}</p>
+                        <p><span className="h6">Title : </span>{this.state.jira.title}</p>
+                        <p><span className="h6">Assignee : </span>{this.state.jira.assignee.firstname +' '+this.state.jira.assignee.lastname}</p>
+                        <p><span className="h6">Story Points : </span>{this.state.jira.story_points}</p>
+                        <p><span className="h6">Project : </span>{this.state.project!=null?this.state.jira.project.name:"Not assigned to any project"}</p>
                     </div>
                     <div className="col-md-4">
-                        <p><span className="h6">Status : </span>4</p>
-                        <p><span className="h6">Sprint : </span>11.3</p>
-                        <p><span className="h6">Date Created : </span>26-Feb-2020</p>
-                        <p><span className="h6">Date Ended : </span>---</p>
-                        <p><span className="h6">Priority : </span>High</p>
+                        <p><span className="h6">Status : </span>{this.state.jira.status}</p>
+                        <p><span className="h6">Sprint : </span>{this.state.jira.sprint}</p>
+                        <p><span className="h6">Date Created : </span>{this.state.jira.date_created}</p>
+                        <p><span className="h6">Date Ended : </span>{this.state.jira.date_ended}</p>
+                        <p><span className="h6">Priority : </span>{this.state.jira.priority}</p>
                     </div>
                     <div className="col-md-4">
                         <h2 className="text-center">Quick Actions</h2>
@@ -65,8 +90,10 @@ class IndividualJiraPage extends Component
                         <h5 onClick={() => this.setOpenDesc(!this.state.openDesc)} aria-controls="description" aria-expanded={this.state.openDesc} >Description&nbsp;<i className="fas fa-angle-down"></i>  </h5>
                     </div>
                     <Collapse in={this.state.openDesc}>
-                        <div id="description" className="col-md-12 text-justify">
-                        As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run. As an IDL user, I want to reduce the DAC build time in order to make it faster to run.
+                        <div id="description" className="col-md-12">
+                            <p className="text-justify">
+                                {this.state.jira.description}
+                            </p>
                         </div>
                     </Collapse>
                 </div>
