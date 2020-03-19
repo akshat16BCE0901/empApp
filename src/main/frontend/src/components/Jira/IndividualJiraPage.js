@@ -1,9 +1,17 @@
 import React, {  useState } from 'react';
 import { Button, Collapse } from 'react-bootstrap';
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import Axios from "axios";
+
+
 
 function IndividualJiraPage()
 {
+    Axios.get("/jira/32")
+        .then(response => response.data)
+        .then((data) => {
+           console.log(data);
+        });
     const [openDesc , setOpenDesc] = useState(true);
     const [openAtt , setOpenAtt] = useState(false);
     const [openComm , setOpenComm] = useState(false);
