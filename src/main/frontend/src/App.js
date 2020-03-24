@@ -10,6 +10,7 @@ import AddProjectForm from './components/Project/AddProjectForm';
 import JiraView from './components/Jira/JiraView';
 import LiveText from './components/Personal/LiveText';
 import IndividualJiraPage from './components/Jira/IndividualJiraPage';
+import FightCorona from './components/Personal/FightCorona';
 
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
@@ -30,7 +31,8 @@ var components = {
   addProjectForm : <AddProjectForm />,
   yourJiras : <JiraView />,
   liveText : <LiveText />,
-  individualJira : <IndividualJiraPage />
+  individualJira : <IndividualJiraPage />,
+  fightCorona : <FightCorona />
 
 }
 
@@ -54,6 +56,7 @@ class App extends Component
   render(){
     var now1=40;
     var now2 = 50;
+    var now3 = 10;
     return (
       <Router>
         <Navbar bg="primary" variant="dark" expand="lg">
@@ -79,6 +82,7 @@ class App extends Component
               <NavDropdown title="Extras" id="basic-nav-dropdown">
                 <NavDropdown.Item href="/liveedit">Live Edit&nbsp;&nbsp;<ProgressBar animated variant="success"  now={now1} label={`Done ${now1}%`} /></NavDropdown.Item>
                 <NavDropdown.Item href="/individualjira">Individual Jiras&nbsp;&nbsp;<ProgressBar animated variant="success" now={now2} label={`Done ${now2}%`}   /></NavDropdown.Item>
+                <NavDropdown.Item href="/fightcorona">Fight Corona&nbsp;&nbsp;<ProgressBar animated variant="success" now={now3} label={`Done ${now3}%`}   /></NavDropdown.Item>
               </NavDropdown>
               <div><Badge pill variant="warning" >Under Construction</Badge></div>
               
@@ -117,6 +121,9 @@ class App extends Component
               </Route>
               <Route path="/individualjira" >
                 {components.individualJira}
+              </Route>
+              <Route path="/fightcorona" >
+                {components.fightCorona}
               </Route>
           </Switch>
         </div>
