@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 import Axios from 'axios';
-import { Card } from 'react-bootstrap';
+import { Card, Navbar, Nav } from 'react-bootstrap';
 import {ResponsiveLine} from '@nivo/line';
+import {MDBDataTable} from 'mdbreact';
+import "mdbreact/dist/css/mdb.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 class FightCorona extends Component
 {
     state=  {
@@ -49,8 +52,9 @@ class FightCorona extends Component
                     
                 ]
             }
-        ]
+        ],
 
+        StateData : []
 
     }
     componentDidMount = () =>{
@@ -94,17 +98,19 @@ class FightCorona extends Component
             var res = data;
             for(let row of res.data)
             {
+                var d = row.day;
+                var date_arr = d.split("-");
                 this.state.GraphData[0].data.push({
-                    "x" : row.day,
+                    "x" : date_arr[2]+ "/"+date_arr[1],
                     "y" : row.summary.total
                 });
                 this.state.GraphData[1].data.push({
-                    "x" : row.day,
+                    "x" : date_arr[2]+ "/"+date_arr[1],
                     "y" : row.summary.deaths
                 });
                 
                 this.state.GraphData[2].data.push({
-                    "x" : row.day,
+                    "x" : date_arr[2]+ "/"+date_arr[1],
                     "y" : row.summary.discharged
                 });
             }
@@ -116,16 +122,83 @@ class FightCorona extends Component
                 
                 this.state.GraphData[2].data.shift();
             }
-            console.log(this.state.GraphData);
+            var lastRow = res.data[res.data.length-1];
+            for(let location of lastRow.regional)
+            {
+                this.state.StateData.push(location);
+            }
         });
         
         
     }
 
     render(){
+        const data = {
+            columns : [
+                {
+                    label : 'State',
+                    field : 'loc',
+                    sort : 'asc'
+                },
+                {
+                    label : 'Indian',
+                    field : 'confirmedCasesIndian',
+                    sort : 'asc'
+                },
+                {
+                    label : 'Foreign',
+                    field : 'confirmedCasesForeign',
+                    sort : 'asc'
+                },
+                {
+                    label : 'Discharged',
+                    field : 'discharged',
+                    sort : 'asc'
+                },
+                {
+                    label : 'Deaths',
+                    field : 'deaths',
+                    sort : 'asc'
+                }
+
+            ],
+            rows : this.state.StateData
+        }
         return(
             <>
-                <div className="row bg-info">
+                <div className="row">
+                    <Navbar collapseOnSelect bg="light" style={{padding : '15px'}} fixed="top" expand='md'>
+                        <Navbar.Brand>FIGHT CORONA</Navbar.Brand>
+                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                        <Navbar.Collapse id="basic-navbar-nav">
+                            <Nav className="mr-auto">
+                                <Nav.Link style={{color : 'black'}} href="#state_wise_data">State wise Data</Nav.Link>
+                                <Nav.Link style={{color : 'black'}}  href="#indian_stats">Indian Stats</Nav.Link>
+                                <Nav.Link style={{color : 'black'}}  href="#world_stats">World Stats</Nav.Link>
+                                <Nav.Link style={{color : 'black'}}  href="#indian_timeline">Indian Timeline</Nav.Link>
+                            </Nav>
+                        </Navbar.Collapse>
+                    </Navbar>
+                </div>  
+                <div id="state_wise_data" className="row" style={{backgroundColor:"white",padding : "10px"}}>
+                    <div className="col-md-12">
+                        <h1 className="text-center">State wise Data</h1>
+                    </div>
+                </div>
+                <div className="row" style={{backgroundColor:"white",padding : "10px"}}>
+                    <div className="col-md-12">
+                        <MDBDataTable
+                            striped
+                            hover
+                            responsive
+                            small
+                            data= {data}
+                            >
+                        </MDBDataTable>
+            
+                    </div>
+                </div>
+                <div id="indian_stats" className="row bg-info">
                     <div className="col-md-12">
                         <h1 className="text-center" style={{color : "white"}}>Indian Stats</h1>
                     </div>
@@ -183,7 +256,7 @@ class FightCorona extends Component
                     </div>
                 </div>
 
-                <div className="row pt-1 bg-secondary">
+                <div id="world_stats" className="row pt-1 bg-secondary">
                     <div className="col-md-12">
                         <h1 className="text-center" style={{color: 'white'}}>World Stats</h1>
                     </div>
@@ -241,7 +314,7 @@ class FightCorona extends Component
                     </div>
                 </div>
 
-                <div className="row pt-1" style={{backgroundColor : 'white'}}>
+                <div id="indian_timeline" className="row pt-1" style={{backgroundColor : 'white'}}>
                     <div className="col-md-12">
                         <h1 className="text-center">Indian Timeline</h1>
                     </div>
@@ -250,7 +323,7 @@ class FightCorona extends Component
                     <div className="col-md-12" style={{height : '20em',width : '100em',minHeight:'0', minWidth : '0'}}> 
                         <ResponsiveLine
                             data={this.state.GraphData}
-                            margin={{ top: 15, right: 10, bottom: 50, left: 50 }}
+                            margin={{ top: 15, right: 60, bottom: 50, left: 30 }}
                             xScale={{ type: 'point' }}
                             yScale={{ type: 'linear', min: 0, max: 'auto', stacked: false, reverse: false }}
                             axisTop={null}
