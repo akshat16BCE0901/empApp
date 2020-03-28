@@ -56,7 +56,7 @@ class App extends Component
   render(){
     var now1=40;
     var now2 = 50;
-    var now3 = 10;
+    var now3 = 80;
     return (
       <Router>
         <Navbar bg="primary" variant="dark" expand="lg">
@@ -64,15 +64,15 @@ class App extends Component
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav variant="pills" className="mr-auto">
-              <NavDropdown title="Employee" id="basic-nav-dropdown">
+              <NavDropdown title="Employee">
                 <NavDropdown.Item href="/employees">View All</NavDropdown.Item>
                 <NavDropdown.Item href="/addnewemployee">Add New</NavDropdown.Item>
               </NavDropdown>
-              <NavDropdown title="Jira" id="basic-nav-dropdown">
+              <NavDropdown title="Jira">
                 <NavDropdown.Item href="/jiras">View All</NavDropdown.Item>
                 <NavDropdown.Item href="/addnewjira">Add New</NavDropdown.Item>
               </NavDropdown>
-              <NavDropdown title="Project" id="basic-nav-dropdown">
+              <NavDropdown title="Project">
                 <NavDropdown.Item href="/projects" >View All</NavDropdown.Item>
                 <NavDropdown.Item href="/addnewproject">Add New</NavDropdown.Item>
               </NavDropdown>
