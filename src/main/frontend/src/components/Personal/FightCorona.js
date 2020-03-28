@@ -54,10 +54,11 @@ class FightCorona extends Component
             }
         ],
 
-        StateData : []
+        StateData : [],
+        GlobalCountryWiseData : []
 
     }
-    componentDidMount = () =>{
+    componentDidMount = async() =>{
         Axios.get("https://thevirustracker.com/free-api?countryTotal=IN")
         .then(response => response.data)
         .then((data) =>{
@@ -128,6 +129,15 @@ class FightCorona extends Component
                 this.state.StateData.push(location);
             }
         });
+
+        await Axios.get("https://corona.lmao.ninja/countries?sort=cases")
+        .then(response => response.data)
+        .then((data) =>{
+            this.setState({
+                GlobalCountryWiseData : data
+            })
+            console.log(this.state.GlobalCountryWiseData);
+        })
         
         
     }
@@ -163,6 +173,36 @@ class FightCorona extends Component
 
             ],
             rows : this.state.StateData
+        };
+        const data_global = {
+            columns : [
+                {
+                    label : 'Country',
+                    field : 'country',
+                },
+                {
+                    label : 'Total Cases',
+                    field : 'cases',
+                },
+                {
+                    label : 'Total Deaths',
+                    field : 'deaths',
+                },
+                {
+                    label : 'Total Recovered',
+                    field : 'recovered',
+                },
+                {
+                    label : 'Cases Today',
+                    field : 'todayCases',
+                },
+                {
+                    label : 'Deaths Today',
+                    field : 'todayDeaths',
+                }
+            ],
+
+            rows : this.state.GlobalCountryWiseData
         }
         return(
             <>
@@ -382,6 +422,24 @@ class FightCorona extends Component
                         >
 
                         </ResponsiveLine>
+                    </div>
+                </div>
+                <div id="gloabl_country_wise_data" className="row" style={{backgroundColor:"white",padding : "10px"}}>
+                    <div className="col-md-12">
+                        <h1 className="text-center">Gloabal Country wise Data</h1>
+                    </div>
+                </div>
+                <div className="row" style={{backgroundColor:"white",padding : "10px"}}>
+                    <div className="col-md-12">
+                        <MDBDataTable
+                            striped
+                            hover
+                            responsive
+                            small
+                            data= {data_global}
+                            >
+                        </MDBDataTable>
+            
                     </div>
                 </div>
             </>
