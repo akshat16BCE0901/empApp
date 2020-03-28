@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Axios from 'axios';
-import { Card, Navbar, Nav } from 'react-bootstrap';
+import { Card, Navbar, Nav, Badge } from 'react-bootstrap';
 import {ResponsiveLine} from '@nivo/line';
 import {MDBDataTable} from 'mdbreact';
 import "mdbreact/dist/css/mdb.css";
@@ -216,6 +216,7 @@ class FightCorona extends Component
                                 <Nav.Link style={{color : 'black'}}  href="#indian_stats">Indian Stats</Nav.Link>
                                 <Nav.Link style={{color : 'black'}}  href="#world_stats">World Stats</Nav.Link>
                                 <Nav.Link style={{color : 'black'}}  href="#indian_timeline">Indian Timeline</Nav.Link>
+                                <Nav.Link style={{color : 'black'}}  href="#global_country_wise_data">Global Country Wise Data&nbsp;&nbsp;<Badge variant="primary">New</Badge> </Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                     </Navbar>
@@ -420,17 +421,16 @@ class FightCorona extends Component
                                 }
                             ]}
                         >
-
                         </ResponsiveLine>
                     </div>
                 </div>
-                <div id="gloabl_country_wise_data" className="row" style={{backgroundColor:"white",padding : "10px"}}>
+                <div id="global_country_wise_data" className="row" style={{backgroundColor:"#e0ab16",padding : "10px"}}>
                     <div className="col-md-12">
-                        <h1 className="text-center">Gloabal Country wise Data</h1>
+                        <h1 className="text-center">Global Country wise Data</h1>
                     </div>
                 </div>
-                <div className="row" style={{backgroundColor:"white",padding : "10px"}}>
-                    <div className="col-md-12">
+                <div className="row" style={{backgroundColor:"#e0ab16",padding : "10px"}}>
+                    <div className="col-md-12"  style={{backgroundColor:"white",padding : "10px"}}>
                         <MDBDataTable
                             striped
                             hover
@@ -439,7 +439,6 @@ class FightCorona extends Component
                             data= {data_global}
                             >
                         </MDBDataTable>
-            
                     </div>
                 </div>
             </>
