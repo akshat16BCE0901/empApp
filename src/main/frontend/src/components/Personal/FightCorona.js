@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Axios from 'axios';
-import { Card, Navbar, Nav, Badge, NavDropdown, ListGroup} from 'react-bootstrap';
+import { Card, Navbar, Nav, Badge, NavDropdown, ListGroup, ListGroupItem, Button} from 'react-bootstrap';
 import {ResponsiveLine} from '@nivo/line';
 import {MDBDataTable} from 'mdbreact';
 import "mdbreact/dist/css/mdb.css";
@@ -216,20 +216,20 @@ class FightCorona extends Component
                                 <Nav.Link style={{color : 'black'}}  href="#indian_stats">Indian Stats</Nav.Link>
                                 <Nav.Link style={{color : 'black'}}  href="#world_stats">World Stats</Nav.Link>
                                 <Nav.Link style={{color : 'black'}}  href="#indian_timeline">Indian Timeline</Nav.Link>
-                                <Nav.Link style={{color : 'black'}}  href="#global_country_wise_data">Global Country Wise Data&nbsp;&nbsp;<Badge variant="primary">New</Badge> </Nav.Link>
+                                <Nav.Link style={{color : 'black'}}  href="#global_country_wise_data">Global Country Wise Data&nbsp;&nbsp;<Badge variant="primary">New</Badge></Nav.Link>
                                 <NavDropdown title="Info Section">
-                                    <NavDropdown.Item href="#indian_helplines">Indian Helplines</NavDropdown.Item>
-                                    <NavDropdown.Item href="#important_websites">Important Websites</NavDropdown.Item>
-                                    <NavDropdown.Item href="#global_helplines">Global Helplines</NavDropdown.Item>
-                                    <NavDropdown.Divider />
                                     <NavDropdown.Item href="#symptoms">Symptoms</NavDropdown.Item>
                                     <NavDropdown.Item href="#prevention">Prevention</NavDropdown.Item>
-                                    
-                                </NavDropdown>
+                                    <NavDropdown.Divider />
+                                    <NavDropdown.Item href="#indian_helplines">Indian Helplines</NavDropdown.Item>
+                                    <NavDropdown.Item href="#important_websites">Important Websites</NavDropdown.Item>
+                                </NavDropdown>                                
+                                <Nav.Link style={{color : 'black',borderRadius : '10px',fontWeight : 'bold'}} className="bg-warning"  href="#donation">&nbsp;Donate Now&nbsp;&nbsp;<Badge variant="primary">New</Badge></Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                     </Navbar>
                 </div>  
+                
                 <div id="state_wise_data" className="row" style={{backgroundColor:"white",padding : "10px"}}>
                     <div className="col-md-12">
                         <h1 className="text-center">State wise Data</h1>
@@ -248,6 +248,7 @@ class FightCorona extends Component
             
                     </div>
                 </div>
+                
                 <div id="indian_stats" className="row bg-info">
                     <div className="col-md-12">
                         <h1 className="text-center" style={{color : "white"}}>Indian Stats</h1>
@@ -256,28 +257,28 @@ class FightCorona extends Component
                 <div style={{padding : '20px'}} className="row bg-info">
                     <div className="col-md-3 p-2">
                         <Card body>
-                            <h1 className="text-center">🧐</h1>
+                            <h1 className="text-center"><span role="img" aria-label="Emoji">🧐</span></h1>
                             <h4 className="text-center">Total Cases</h4>
                             <h5 className="text-center">{this.state.INData.total_cases}</h5>
                         </Card>
                     </div>
                     <div className="col-md-3 p-2">
                         <Card body>
-                            <h1 className="text-center">😇</h1>
+                            <h1 className="text-center"><span role="img" aria-label="Emoji">😇</span></h1>
                             <h4 className="text-center">Total Recovered</h4>
                             <h5 className="text-center">{this.state.INData.total_recovered}</h5>
                         </Card>
                     </div>
                     <div className="col-md-3 p-2">
                         <Card body>
-                            <h1 className="text-center">🤢</h1>
+                            <h1 className="text-center"><span role="img" aria-label="Emoji">🤢</span></h1>
                             <h4 className="text-center">Total Unresolved</h4>
                             <h5 className="text-center">{this.state.INData.total_unresolved}</h5>
                         </Card>
                     </div>
                     <div className="col-md-3 p-2">
                         <Card body>
-                            <h1 className="text-center">😞</h1>
+                            <h1 className="text-center"><span role="img" aria-label="Emoji">😞</span></h1>
                             <h4 className="text-center">Total Deaths</h4>
                             <h5 className="text-center">{this.state.INData.total_deaths}</h5>
                         </Card>
@@ -286,28 +287,28 @@ class FightCorona extends Component
                 <div style={{padding : '20px'}} className="row bg-info">
                     <div className="col-md-3 p-2">
                         <Card body>
-                            <h1 className="text-center">😷</h1>
+                            <h1 className="text-center"><span role="img" aria-label="Emoji">😷</span></h1>
                             <h4 className="text-center">Total New Cases Today</h4>
                             <h5 className="text-center">{this.state.INData.total_new_cases_today}</h5>
                         </Card>
                     </div>
                     <div className="col-md-3 p-2">
                         <Card body>
-                            <h1 className="text-center">😔</h1>
+                            <h1 className="text-center"><span role="img" aria-label="Emoji">😔</span></h1>
                             <h4 className="text-center">Total New Deaths Today</h4>
                             <h5 className="text-center">{this.state.INData.total_new_deaths_today}</h5>
                         </Card>
                     </div>
                     <div className="col-md-3 p-2">
                         <Card body>
-                            <h1 className="text-center">🤧</h1>
+                            <h1 className="text-center"><span role="img" aria-label="Emoji">🤧</span></h1>
                             <h4 className="text-center">Total Active Cases</h4>
                             <h5 className="text-center">{this.state.INData.total_active_cases}</h5>
                         </Card>
                     </div>
                     <div className="col-md-3 p-2">
                         <Card body>
-                            <h1 className="text-center">🤕</h1>
+                            <h1 className="text-center"><span role="img" aria-label="Emoji">🤕</span></h1>
                             <h4 className="text-center">Total Serious Cases</h4>
                             <h5 className="text-center">{this.state.INData.total_serious_cases}</h5>
                         </Card>
@@ -322,28 +323,28 @@ class FightCorona extends Component
                 <div style={{padding : '20px'}} className="row bg-secondary">
                     <div className="col-md-3 p-2">
                         <Card body>
-                            <h1 className="text-center">🧐</h1>
+                            <h1 className="text-center"><span role="img" aria-label="Emoji">🧐</span></h1>
                             <h4 className="text-center">Total Cases</h4>
                             <h5 className="text-center">{this.state.WorldData.total_cases}</h5>
                         </Card>
                     </div>
                     <div className="col-md-3 p-2">
                         <Card body>
-                            <h1 className="text-center">😇</h1>
+                            <h1 className="text-center"><span role="img" aria-label="Emoji">😇</span></h1>
                             <h4 className="text-center">Total Recovered</h4>
                             <h5 className="text-center">{this.state.WorldData.total_recovered}</h5>
                         </Card>
                     </div>
                     <div className="col-md-3 p-2">
                         <Card body>
-                            <h1 className="text-center">🤢</h1>
+                            <h1 className="text-center"><span role="img" aria-label="Emoji">🤢</span></h1>
                             <h4 className="text-center">Total Unresolved</h4>
                             <h5 className="text-center">{this.state.WorldData.total_unresolved}</h5>
                         </Card>
                     </div>
                     <div className="col-md-3 p-2">
                         <Card body>
-                            <h1 className="text-center">😞</h1>
+                            <h1 className="text-center"><span role="img" aria-label="Emoji">😞</span></h1>
                             <h4 className="text-center">Total Deaths</h4>
                             <h5 className="text-center">{this.state.WorldData.total_deaths}</h5>
                         </Card>
@@ -352,28 +353,28 @@ class FightCorona extends Component
                 <div style={{padding : '20px'}} className="row bg-secondary">
                     <div className="col-md-3 p-2">
                         <Card body>
-                            <h1 className="text-center">😷</h1>
+                            <h1 className="text-center"><span role="img" aria-label="Emoji">😷</span></h1>
                             <h4 className="text-center">Total New Cases Today</h4>
                             <h5 className="text-center">{this.state.WorldData.total_new_cases_today}</h5>
                         </Card>
                     </div>
                     <div className="col-md-3 p-2">
                         <Card body>
-                            <h1 className="text-center">😔</h1>
+                            <h1 className="text-center"><span role="img" aria-label="Emoji">😔</span></h1>
                             <h4 className="text-center">Total New Deaths Today</h4>
                             <h5 className="text-center">{this.state.WorldData.total_new_deaths_today}</h5>
                         </Card>
                     </div>
                     <div className="col-md-3 p-2">
                         <Card body>
-                            <h1 className="text-center">🤧</h1>
+                            <h1 className="text-center"><span role="img" aria-label="Emoji">🤧</span></h1>
                             <h4 className="text-center">Total Active Cases</h4>
                             <h5 className="text-center">{this.state.WorldData.total_active_cases}</h5>
                         </Card>
                     </div>
                     <div className="col-md-3 p-2">
                         <Card body>
-                            <h1 className="text-center">🤕</h1>
+                            <h1 className="text-center"><span role="img" aria-label="Emoji">🤕</span></h1>
                             <h4 className="text-center">Total Serious Cases</h4>
                             <h5 className="text-center">{this.state.WorldData.total_serious_cases}</h5>
                         </Card>
@@ -449,6 +450,7 @@ class FightCorona extends Component
                         </ResponsiveLine>
                     </div>
                 </div>
+                
                 <div id="global_country_wise_data" className="row" style={{backgroundColor:"#e0ab16",padding : "10px"}}>
                     <div className="col-md-12">
                         <h1 className="text-center">Global Country wise Data</h1>
@@ -466,6 +468,80 @@ class FightCorona extends Component
                         </MDBDataTable>
                     </div>
                 </div>
+
+                <div className="row" id="symptoms_and_prevention" style={{backgroundColor:"white",padding : "10px"}}>
+                    <div className="col-md-12">
+                        <h1 className='text-center'>Symptoms and Prevention</h1>
+                    </div>
+                </div>
+                <div className="row" style={{backgroundColor:"white",padding : "10px"}}>
+                    <div id="symptoms" className="col-md-12">
+                        <div className="row p-2">
+                            <div className="col-md-12">
+                                <h2 className="text-center">Symptoms</h2>
+                            </div>
+                            
+                            <div className="col-md-12">
+                                <p className="text-justify">
+                                    The COVID-19 virus affects different people in different ways. COVID-19 is a respiratory disease and most infected people will develop mild to moderate symptoms and recover without requiring special treatment. People who have underlying medical conditions and those over 60 years old have a higher risk of developing severe disease and death.
+                                </p>
+                                <p>
+                                    <b className="h5">Common symptoms include -</b>
+                                    <br />
+                                    <br />
+                                    <ListGroup>
+                                        <ListGroup.Item>Fever</ListGroup.Item>
+                                        <ListGroup.Item>Tiredness</ListGroup.Item>
+                                        <ListGroup.Item>Dry Cough</ListGroup.Item>
+                                    </ListGroup>
+                                </p>
+                                <br />
+                                <p className="text-justify">
+                                    <b className="h5">Other symptoms include -</b>
+                                    <br />
+                                    <br />
+                                    <ListGroup>
+                                        <ListGroup.Item>Shortness of Breath</ListGroup.Item>
+                                        <ListGroup.Item>Ached and Pains</ListGroup.Item>
+                                        <ListGroup.Item>Sore throat</ListGroup.Item>
+                                        <ListGroup.Item>and very few people will report diarrhoea, nausea or a runny nose.</ListGroup.Item>
+                                    </ListGroup>
+                                </p>
+                                <p className="text-justify">
+                                    People with mild symptoms who are otherwise healthy should self-isolate and contact their medical provider or a COVID-19 information line for advice on testing and referral.
+                                </p>
+                                <p className="text-justify">
+                                    People with fever, cough or difficulty breathing should call their doctor and seek medical attention.  
+                                </p>
+                            </div>
+                    
+                        </div>
+                    </div>
+                    <div id="prevention" className="col-md-12">
+                        <div className="row p-2">
+                            <div className="col-md-12">
+                                <h2 className="text-center">Prevention</h2>
+                            </div>
+                        </div>
+                        <div className="row p-2">
+                            <p>
+                                <b className="h5">To prevent infection and to slow transmission of COVID-19, do the following:</b>
+                                <br />
+                                <br />
+                                <ListGroup>
+                                    <ListGroup.Item>Wash your hands regularly with soap and water, or clean them with alcohol-based hand rub.</ListGroup.Item>
+                                    <ListGroup.Item>Maintain at least 1 metre distance between you and people coughing or sneezing.</ListGroup.Item>
+                                    <ListGroup.Item>Avoid touching your face.</ListGroup.Item>
+                                    <ListGroup.Item>Cover your mouth and nose when coughing or sneezing.</ListGroup.Item>
+                                    <ListGroup.Item>Stay home if you feel unwell.</ListGroup.Item>
+                                    <ListGroup.Item>Refrain from smoking and other activities that weaken the lungs.</ListGroup.Item>
+                                    <ListGroup.Item>Practice physical distancing by avoiding unnecessary travel and staying away from large groups of people.</ListGroup.Item>
+                                </ListGroup>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
                 <div className="row" id="indian_helplines" style={{backgroundColor:"#c7fcd1",padding : "10px"}}>
                     <div className="col-md-12">
                         <h1 className="text-center">Indian Helplines</h1>
@@ -497,75 +573,64 @@ class FightCorona extends Component
                         </Card>
                     </div>
                 </div>
-                <div className="row" id="symptoms_and_prevention" style={{backgroundColor:"white",padding : "10px"}}>
+                
+                <div id="important_websites" className="row" style={{backgroundColor : '#dce7fc',padding : '10px'}}>
                     <div className="col-md-12">
-                        <h1 className='text-center'>Symptoms and Prevention</h1>
+                        <h1 className='text-center'>Important Websites</h1>
                     </div>
                 </div>
-                <div className="row" style={{backgroundColor:"white",padding : "10px"}}>
-                    <div id="symptoms" className="col-md-12">
-                        <div className="row p-2">
-                            <div className="col-md-12">
-                                <h2 className="text-center">Symptoms</h2>
-                            </div>
-                        </div>
-                        <div className="row p-2">
-                            <p className="text-justify">
-                                The COVID-19 virus affects different people in different ways. COVID-19 is a respiratory disease and most infected people will develop mild to moderate symptoms and recover without requiring special treatment. People who have underlying medical conditions and those over 60 years old have a higher risk of developing severe disease and death.
-                            </p>
-                            <p>
-                                <b className="h5">Common symptoms include -</b>
-                                <br />
-                                <br />
-                                <ListGroup>
-                                    <ListGroup.Item>Fever</ListGroup.Item>
-                                    <ListGroup.Item>Tiredness</ListGroup.Item>
-                                    <ListGroup.Item>Dry Cough</ListGroup.Item>
+                <div className="row" style={{backgroundColor : '#dce7fc',padding : '10px'}}>
+                    <div className="col-md-6 p-2">
+                        <Card>
+                            <Card.Header className="text-center" as="h3">Indian Websites</Card.Header>
+                            <Card.Body>
+                                <ListGroup className="list-group-flush">
+                                    <ListGroupItem className="text-center"><a href="https://www.mohfw.gov.in/" target="_blank" rel="noopener noreferrer">https://www.mohfw.gov.in/</a></ListGroupItem>
+                                    <ListGroupItem className="text-center"><a href="https://www.pmindia.gov.in/en/" target="_blank" rel="noopener noreferrer">https://www.pmindia.gov.in/en/</a></ListGroupItem>
+                                    <ListGroupItem className="text-center"><a href="https://www.mygov.in/covid-19/" target="_blank" rel="noopener noreferrer">https://www.mygov.in/covid-19/</a></ListGroupItem>
                                 </ListGroup>
-                            </p>
-                            <p className="text-justify">
-                                <b className="h5">Other symptoms include -</b>
-                                <br />
-                                <br />
-                                <ListGroup>
-                                    <ListGroup.Item>Shortness of Breath</ListGroup.Item>
-                                    <ListGroup.Item>Ached and Pains</ListGroup.Item>
-                                    <ListGroup.Item>Sore throat</ListGroup.Item>
-                                    <ListGroup.Item>and very few people will report diarrhoea, nausea or a runny nose.</ListGroup.Item>
-                                </ListGroup>
-                            </p>
-                            <p className="text-justify">
-                                People with mild symptoms who are otherwise healthy should self-isolate and contact their medical provider or a COVID-19 information line for advice on testing and referral.
-                            </p>
-                            <p className="text-justify">
-                                People with fever, cough or difficulty breathing should call their doctor and seek medical attention.  
-                            </p>
-                        </div>
+                            </Card.Body>
+                        </Card>
                     </div>
-                    <div id="prevention" className="col-md-12">
-                        <div className="row p-2">
-                            <div className="col-md-12">
-                                <h2 className="text-center">Prevention</h2>
-                            </div>
-                        </div>
-                        <div className="row p-2">
-                            <p>
-                                <b className="h5">To prevent infection and to slow transmission of COVID-19, do the following:</b>
-                                <br />
-                                <br />
-                                <ListGroup>
-                                    <ListGroup.Item>Wash your hands regularly with soap and water, or clean them with alcohol-based hand rub.</ListGroup.Item>
-                                    <ListGroup.Item>Maintain at least 1 metre distance between you and people coughing or sneezing.</ListGroup.Item>
-                                    <ListGroup.Item>Avoid touching your face.</ListGroup.Item>
-                                    <ListGroup.Item>Cover your mouth and nose when coughing or sneezing.</ListGroup.Item>
-                                    <ListGroup.Item>Stay home if you feel unwell.</ListGroup.Item>
-                                    <ListGroup.Item>Refrain from smoking and other activities that weaken the lungs.</ListGroup.Item>
-                                    <ListGroup.Item>Practice physical distancing by avoiding unnecessary travel and staying away from large groups of people.</ListGroup.Item>
+                    <div className="col-md-6 p-2">
+                        <Card>
+                            <Card.Header className="text-center" as="h3">Global Websites</Card.Header>
+                            <Card.Body>
+                                <ListGroup className="list-group-flush">
+                                    <ListGroupItem className="text-center"><a href="https://www.who.int/health-topics/coronavirus" target="_blank" rel="noopener noreferrer">https://www.who.int/health-topics/coronavirus</a></ListGroupItem>
+                                    <ListGroupItem className="text-center"><a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019" target="_blank" rel="noopener noreferrer">https://www.who.int/emergencies/diseases/novel-coronavirus-2019</a></ListGroupItem>
+                                    <ListGroupItem className="text-center"><a href="https://www.mygov.in/covid-19/" target="_blank" rel="noopener noreferrer">https://www.mygov.in/covid-19/</a></ListGroupItem>
                                 </ListGroup>
-                            </p>
-                        </div>
+                            </Card.Body>
+                        </Card>
                     </div>
                 </div>
+                
+                <div id="donation" className="row" style={{backgroundColor : '#ffc8c4',padding : '10px'}}>
+                    <div className="col-md-12">
+                        <h1 className='text-center'>Donate Now</h1>
+                    </div>
+                </div>
+                <div className="row" style={{backgroundColor : '#ffc8c4',padding : '10px'}}>
+                    <div className="col-md-6 p-2">
+                        <Card>
+                            <Card.Header className="text-center" as="h3">Prime Minister Relief Fund</Card.Header>
+                            <Card.Body>
+                                --------COMING SOON-------
+                            </Card.Body>
+                        </Card>
+                    </div>
+                    <div className="col-md-6 p-2">
+                        <Card>
+                            <Card.Header className="text-center" as="h3">PM-CARES Fund</Card.Header>
+                            <Card.Img variant="top" src="pmcares.jpg" />
+                            <Card.Body>
+                                <a className="btn btn-lg btn-primary" target="_blank" rel="noopener noreferrer" href="https://www.onlinesbi.com/sbicollect/icollecthome.htm?corpID=1953956">DONATE NOW</a>
+                            </Card.Body>
+                        </Card>
+                    </div>
+                </div>
+           
             </>
         )
     }
