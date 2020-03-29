@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Axios from 'axios';
-import { Card, Navbar, Nav, Badge, NavDropdown, ListGroup, ListGroupItem, Button} from 'react-bootstrap';
+import { Card, Navbar, Nav, Badge, NavDropdown, ListGroup, ListGroupItem} from 'react-bootstrap';
 import {ResponsiveLine} from '@nivo/line';
 import {MDBDataTable} from 'mdbreact';
 import "mdbreact/dist/css/mdb.css";
@@ -615,8 +615,9 @@ class FightCorona extends Component
                     <div className="col-md-6 p-2">
                         <Card>
                             <Card.Header className="text-center" as="h3">Prime Minister Relief Fund</Card.Header>
-                            <Card.Body>
-                                --------COMING SOON-------
+                            <Card.Img variant="top" src="pmnrf.jpg" />
+                            <Card.Body className="text-center">
+                                <a className="btn btn-lg btn-primary" target="_blank" rel="noopener noreferrer" href="https://pmnrf.gov.in/en/online-donation">DONATE NOW</a>
                             </Card.Body>
                         </Card>
                     </div>
@@ -624,7 +625,7 @@ class FightCorona extends Component
                         <Card>
                             <Card.Header className="text-center" as="h3">PM-CARES Fund</Card.Header>
                             <Card.Img variant="top" src="pmcares.jpg" />
-                            <Card.Body>
+                            <Card.Body className="text-center">
                                 <a className="btn btn-lg btn-primary" target="_blank" rel="noopener noreferrer" href="https://www.onlinesbi.com/sbicollect/icollecthome.htm?corpID=1953956">DONATE NOW</a>
                             </Card.Body>
                         </Card>
