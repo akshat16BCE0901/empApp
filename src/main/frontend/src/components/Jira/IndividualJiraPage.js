@@ -34,10 +34,11 @@ class IndividualJiraPage extends Component
             "date_created":null,
             "status":"",
             "date_ended":null
-        }
+        },
+        jiraId : this.props.id
     };
     componentDidMount = () =>{
-        Axios.get("https://akkiapp.herokuapp.com/jira/view/42")
+        Axios.get(`https://akkiapp.herokuapp.com/jira/view/${this.state.jiraId}`)
         .then(response => response.data)
         .then((data) => {
             this.setState({jira : data});

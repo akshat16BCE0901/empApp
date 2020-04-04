@@ -19,7 +19,7 @@ import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+import { Switch, Route, BrowserRouter as Router, useParams } from 'react-router-dom';
 import { Badge, ProgressBar } from 'react-bootstrap';
 
 var components = {
@@ -31,7 +31,6 @@ var components = {
   addProjectForm : <AddProjectForm />,
   yourJiras : <JiraView />,
   liveText : <LiveText />,
-  individualJira : <IndividualJiraPage />,
   fightCorona : <FightCorona />
 
 }
@@ -119,9 +118,7 @@ class App extends Component
               <Route path="/liveedit">
                 {components.liveText}
               </Route>
-              <Route path="/individualjira" >
-                {components.individualJira}
-              </Route>
+              <Route path="/individualjira/:id" children={<IndividualJiraMiddleware />} />
               <Route path="/fightcorona" >
                 {components.fightCorona}
               </Route>
@@ -131,6 +128,15 @@ class App extends Component
       
     );
   }
+}
+
+function IndividualJiraMiddleware(){
+    
+  let {id} = useParams();
+  return(
+    <IndividualJiraPage id={`${id}`} />
+  )
+
 }
 
 export default App;

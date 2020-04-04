@@ -46,7 +46,7 @@ class CardSection extends Component
                                 </Card.Text>
                             </Card.Body>
                             <Card.Footer className="text-center">
-                                <a href="/indi" class="btn btn-primary" variant="primary">Open</a>
+                                <a href={`individualJira/${row.id}`} className="btn btn-primary" variant="primary">Open</a>
                             </Card.Footer>
                         </Card>
                     ))
