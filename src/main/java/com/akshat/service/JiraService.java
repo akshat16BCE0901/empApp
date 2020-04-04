@@ -46,4 +46,9 @@ public class JiraService {
         return arr;
     }
 
+    public void updateStatus(Long id, String status)
+    {
+        jiraRepository.updateStatus(id,status);
+    }
+
 }

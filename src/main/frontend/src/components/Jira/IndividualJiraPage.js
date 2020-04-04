@@ -37,15 +37,28 @@ class IndividualJiraPage extends Component
         },
         jiraId : this.props.id
     };
-    componentDidMount = () =>{
-        Axios.get(`https://akkiapp.herokuapp.com/jira/view/${this.state.jiraId}`)
+    
+    refreshData = function(){
+        Axios.get(`/jira/view/${this.state.jiraId}`)
         .then(response => response.data)
         .then((data) => {
             this.setState({jira : data});
             console.log(this.state.jira);
         });
     }
-    
+    componentDidMount = () =>{
+        this.refreshData();
+    }
+    changeStatus = (jiraId,status) =>{
+
+        Axios.put(`/jira/updatestatus/${jiraId}/${status}`)
+        .then(response => response.data)
+        .then((data) =>{
+            console.log(data);
+        });
+        this.refreshData();
+
+    }
     setOpenDesc = function(flag)
     {
         this.setState({openDesc : flag});
@@ -79,10 +92,10 @@ class IndividualJiraPage extends Component
                     <div className="col-md-4">
                         <h2 className="text-center">Quick Actions</h2>
                         <div className="text-center">
-                            <Button variant="success">Mark as Completed</Button>
-                            <Button variant="danger">Mark as Aborted</Button>
-                            <Button variant="warning">Mark as On hold</Button>
-                            <Button variant="info">Mark as In Play</Button>
+                            <Button onClick={() => this.changeStatus(this.state.jiraId,"Done")} variant="success">Mark as Completed</Button>
+                            <Button onClick={() => this.changeStatus(this.state.jiraId,"Aborted")} variant="danger">Mark as Aborted</Button>
+                            <Button onClick={() => this.changeStatus(this.state.jiraId,"On Hold")} variant="warning">Mark as On hold</Button>
+                            <Button onClick={() => this.changeStatus(this.state.jiraId,"In Play")} variant="info">Mark as In Play</Button>
                         </div>
                     </div>
                 </div>
@@ -103,7 +116,7 @@ class IndividualJiraPage extends Component
                         <h5 onClick={() => this.setOpenAtt(!this.state.openAtt)} aria-controls="attachments" aria-expanded={this.state.openAtt} >Attachments&nbsp;<i className="fas fa-angle-right"></i>  </h5>
                     </div>
                     <Collapse in={this.state.openAtt}>
-                        <div id="atachments" className="col-md-12">
+                        <div id="attachments" className="col-md-12">
                         As an IDL user, I want to reduce the DAC build time in order<br />
                         As an IDL user, I want to reduce the DAC build time in order<br />
                         As an IDL user, I want to reduce the DAC build time in order<br />
