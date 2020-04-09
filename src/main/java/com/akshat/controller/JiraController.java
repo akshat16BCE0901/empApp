@@ -40,9 +40,9 @@ public class JiraController {
         return jiraService.getJiraStatus();
     }
 
-    @PutMapping(value = "/updatestatus/{jiraId}/{status}")
-    public void updateStatus(@PathVariable("jiraId") Long id,@PathVariable("status") String status){
-        jiraService.updateStatus(id,status);
+    @PutMapping(value = "/updatestatus/{jiraId}/{oldStatus}/{newStatus}")
+    public void updateStatus(@PathVariable("jiraId") Long id,@PathVariable("oldStatus") String oldStatus,@PathVariable("newStatus") String newStatus){
+        jiraService.updateStatus(id,oldStatus,newStatus);
     }
 
 }

@@ -49,14 +49,14 @@ class IndividualJiraPage extends Component
     componentDidMount = () =>{
         this.refreshData();
     }
-    changeStatus = (jiraId,status) =>{
+    changeStatus = async(jiraId,newStatus) =>{
 
-        Axios.put(`/jira/updatestatus/${jiraId}/${status}`)
+        Axios.put(`/jira/updatestatus/${jiraId}/${this.state.jira.status}/${newStatus}`)
         .then(response => response.data)
         .then((data) =>{
             console.log(data);
         });
-        this.refreshData();
+        await this.refreshData();
 
     }
     setOpenDesc = function(flag)

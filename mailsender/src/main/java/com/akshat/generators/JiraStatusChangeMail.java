@@ -6,17 +6,15 @@ public class JiraStatusChangeMail {
 
     String to;
     String message;
-    String subject;
 
     public JiraStatusChangeMail() {
 
     }
 
-    public JiraStatusChangeMail(String to, String message, String subject) {
+    public JiraStatusChangeMail(String to, String message) {
         super();
         this.to = to;
         this.message = message;
-        this.subject = subject;
     }
 
     public String getTo() {
@@ -35,20 +33,12 @@ public class JiraStatusChangeMail {
         this.message = message;
     }
 
-    public String getSubject() {
-        return subject;
-    }
-
-    public void setSubject(String subject) {
-        this.subject = subject;
-    }
 
     @Override
     public String toString() {
         return "JiraStatusChangeMail{" +
                 "to='" + to + '\'' +
                 ", message='" + message + '\'' +
-                ", subject='" + subject + '\'' +
                 '}';
     }
 
