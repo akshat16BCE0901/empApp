@@ -1,6 +1,5 @@
 package com.akshat.generators;
 
-import com.akshat.model.Employee;
 
 public class JiraStatusChangeMail {
 
