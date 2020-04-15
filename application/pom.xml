@@ -126,6 +126,7 @@
                 </executions>
                 <configuration>
                     <workingDirectory>${project.basedir}/src/main/frontend</workingDirectory>
+                    <installDirectory>${project.build.directory}</installDirectory>
                 </configuration>
             </plugin>
             <plugin>

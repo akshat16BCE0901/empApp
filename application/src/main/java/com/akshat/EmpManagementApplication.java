@@ -17,7 +17,7 @@ import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBr
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.akshat")
 @EntityScan("com.akshat.model")
 @EnableJpaRepositories(value = "com.akshat.repository")
 @PropertySource("classpath:database.properties")
