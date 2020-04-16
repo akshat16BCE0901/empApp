@@ -57,20 +57,5 @@
 			</exclusions>
 		</dependency>
 	</dependencies>
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<version>2.1.7.RELEASE</version>
-				<goals>
-					<goal>repackage</goal>
-				</goals>
-				<configuration>
-					<mainClass>com.akshat.EmpManagementApplication</mainClass>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
 
 </project>
